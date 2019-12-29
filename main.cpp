@@ -3,6 +3,10 @@
 #include <algorithm>
 #include <stack>
 #include <queue>
+#include <time.h>
+#include <wchar.h>
+#include <locale.h>
+#include <unordered_map>
 using namespace std;
 
 struct ListNode {
@@ -10,27 +14,25 @@ struct ListNode {
     ListNode *next;
     ListNode(int x) : val(x), next(NULL) {}
 };
-
 class Solution {
 public:
-    int kthSmallest(vector<vector<int>>& matrix, int k) {
-        auto cmp = [&](pair<int,int> a, pair<int,int> b){
-            return matrix[a.first][a.second] <matrix[b.first][b.second];
-        };
-        priority_queue<pair<int,int>, vector<pair<int,int>>, decltype(cmp)> pq(cmp);
-        int n = matrix.size();
-        for(int i = 0;i<n;++i)pq.push(make_pair(0, i));
-
-        for(int i = 0;i<k-1;++i){
-            auto t = pq.top();
-            pq.pop();
-            if(t.first<n-1)pq.push(make_pair(t.first+1, t.second));
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        unordered_map<string, vector<string>> mp;
+        for(auto s:strs){
+            string ss = s;
+            sort(ss.begin(), ss.end());
+            mp[ss].push_back(s);
         }
-        return matrix[pq.top().first][pq.top().second];
+        vector<vector<string>> ans;
+        for(const auto& item:mp){
+            ans.push_back(item.second);
+        }
+        return ans;
     }
 };
-int f(int, float);
 int main() {
-    cout<<is_same<decltype(f), int(int,int)>::value<<endl;
+    vector<int> v = {1,3,3};
+    Solution s;
+
     return 0;
 }
