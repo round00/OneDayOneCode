@@ -27,10 +27,25 @@ namespace std{
 
     }
 }
+TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+    if(!root || root==p ||root==q){
+        return root;
+    }
 
+    auto l = lowestCommonAncestor(root->left, p, q);
+    auto r = lowestCommonAncestor(root->right, p, q);
+
+    if(l && r)return root;
+    return l?l:r;
+}
 int main() {
-    vector<int> v = {2,1,5,6,2,3};
-    Solution s;
+    TreeNode* rt = new TreeNode(3);
+    TreeNode* l = new TreeNode(5);
+    TreeNode* r = new TreeNode(1);
+    rt->left = l;
+    rt->right = r;
+    auto ret = lowestCommonAncestor(rt, l, r);
+
 
     return 0;
 }

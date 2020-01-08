@@ -37,6 +37,7 @@ target_link_libraries(EchoServer event)
 add_executable(HttpServer libevent/HttpServer.cpp)
 target_link_libraries(HttpServer event)
 
-add_executable(primercpp_chapter15 primercpp/Chapter15.cpp primercpp/Quote.cpp)
+add_subdirectory(primercpp)
+
 
 add_subdirectory(thundering_herd)
