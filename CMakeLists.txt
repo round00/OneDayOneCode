@@ -17,6 +17,7 @@ add_executable(QuickSort_list QuickSort_list.cpp)
 add_executable(InsertSort InsertSort.cpp)
 add_executable(HeapSort HeapSort.cpp)
 add_executable(BinarySearchTree BinarySearchTree.cpp)
+add_executable(AVLTree AVLTree.cpp)
 add_executable(OperatorOverLoad OperatorOverLoad.cpp)
 add_executable(epoll_reactor epoll_reactor.cpp)
 

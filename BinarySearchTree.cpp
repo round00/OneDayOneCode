@@ -1,6 +1,9 @@
 //
 // Created by gjk on 2019/12/17.
 //
+
+//  这个BST写的不好，没有删除操作，可以参考AVL树的写法--AVLTree.cpp
+
 #include <stdio.h>
 struct Node{
     int val;
