@@ -2,11 +2,11 @@ import redis
 
 #start redis: src/redis-server --protected-mode no
 
-conn = redis.Redis(host="121.36.51.156", port=6379, db=15)
-conn.zadd('ip2cityid', {'216721_2': 271873233})
-print conn.zcard('ip2cityid')
+conn = redis.Redis(host="121.36.51.156", port=8765, password="nibuzhidao1")
+# conn.zadd('ip2cityid', {'216721_2': 271873233})
+# print conn.zcard('ip2cityid')
 print conn.info()['connected_clients']
-
+print conn.ping()
 # conn.set("foo1", "bar")
 # print conn.get("foo1")
 

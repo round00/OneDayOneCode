@@ -1,0 +1,2 @@
+add_executable(redis_demo1 demo1.cpp)
+target_link_libraries(redis_demo1 hiredis)
