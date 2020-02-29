@@ -11,11 +11,12 @@ link_directories(
         /usr/local/lib/
 )
 
-add_executable(main main.cpp)
-
 add_subdirectory(DataStructer)
 add_subdirectory(Libevent)
 add_subdirectory(DesignPattern)
 add_subdirectory(Primercpp)
 add_subdirectory(Redis)
 add_subdirectory(Linux)
+
+add_executable(main main.cpp)
+add_executable(gnu_attribute gnu_attribute.cpp)
