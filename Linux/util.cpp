@@ -11,7 +11,7 @@
 #include <fcntl.h>
 #include "util.h"
 
-int open_listenedfd(int port){
+int open_listenedfd(int port, int nonblock){
     struct addrinfo hints, *listp, *p;
     int listenfd = -1, optval = 1;
 
@@ -40,7 +40,11 @@ int open_listenedfd(int port){
             continue;
         }
         //即使不设置成非阻塞的，IO多路复用函数select也能正常工作，所以为什么要设置呢
-        setsock_nonblock(listenfd);
+        //答：水平触发时，阻塞的可以正常工作，边缘触发只能非阻塞
+        if(nonblock){
+            setsock_nonblock(listenfd);
+        }
+
 
         if(::bind(listenfd, p->ai_addr, p->ai_addrlen) == 0){
             break;

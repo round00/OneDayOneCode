@@ -29,7 +29,7 @@ int main(){
     // 我们捕捉到它，然后在这里回收子进程资源
     ::signal(SIGCHLD, child_die);
 
-    int serverfd = open_listenedfd(PORT);
+    int serverfd = open_listenedfd(PORT, 0);
     while(true){
         struct sockaddr clientaddr;
         socklen_t socklen = sizeof(clientaddr);

@@ -12,7 +12,7 @@ const int PORT = 9876;
 
 int main(){
 
-    int serverfd = open_listenedfd(PORT);
+    int serverfd = open_listenedfd(PORT, 0);
 
     while(true){
         struct sockaddr clientaddr;

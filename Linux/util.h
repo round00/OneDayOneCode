@@ -8,7 +8,7 @@
 #include <sys/types.h>
 const int MAX_LISTEN_QUEUE = 1024;
 //成功返回可用的TCP服务器监听port端口的socket fd，失败返回-1
-int open_listenedfd(int port);
+int open_listenedfd(int port, int nonblock = 1);
 
 //从sockaddr生成IP:PORT字符串
 struct sockaddr;
