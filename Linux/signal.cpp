@@ -4,8 +4,9 @@
 #include <signal.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <pthread.h>
 void sig_recv(int signo){
-    printf("recv %d=", signo);
+    printf("recv %d, pid=%lu\n", signo, pthread_self());
     switch(signo){
         case SIGHUP:
             printf("SIGHUP\n");
@@ -108,9 +109,10 @@ void sig_recv(int signo){
 
 int main()
 {
+    sig_atomic_t;
     /*
      * 产生信号的方式：
-     * 1、终端 kill -i pid
+     * 1、终端 kill -i pid，系统调用也有kill
      * 2、程序本身raise();
      * 3、alarm、abort、等函数调用产生特定信号
      * 4、组合按键例如Ctrl+C=SIGINT,Ctrl+\SIGQUIT,Ctrl+Z=SIGSTP
@@ -123,7 +125,9 @@ int main()
      * 3、为特定信号设置handler来进行自定义处理
      * 4、通过sigmask系列函数设置屏蔽、阻塞信号等操作
      */
-
+    /*!!!只有当从内核态返回用户态的时候才会处理信号，
+     * 所以如果根本就不进行系统调用，是不会有信号的回调的*/
+    printf("main thread id=%lu\n", pthread_self());
     for(int i = 1;i<=64; ++i){
         ::signal(i, sig_recv);
     }

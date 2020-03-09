@@ -8,6 +8,7 @@ add_executable(aio_glibc aio_glibc.cpp)
 target_link_libraries(aio_glibc rt)
 
 add_executable(signal  signal.cpp)
+target_link_libraries(signal pthread)
 add_executable(echoserver_plain echoserver_plain.cpp util.cpp)
 add_executable(echoserver_fork echoserver_fork.cpp util.cpp)
 add_executable(echoserver_select echoserver_select.cpp util.cpp)
@@ -20,3 +21,5 @@ add_executable(thread_sync_error thread_sync_error.cpp)
 target_link_libraries(thread_sync_error pthread)
 
 add_executable(tiny_httpserver tiny_httpserver.cpp util.cpp)
+add_executable(eventfd eventfd.cpp)
+add_executable(daemon daemon.cpp)

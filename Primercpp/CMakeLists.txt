@@ -13,3 +13,4 @@ add_executable(tmprogramming template_metaprogramming.cpp)
 
 add_executable(mysharedptr mysharedptr.cpp)
 add_executable(OperatorOverLoad OperatorOverLoad.cpp)
+add_executable(friend friend.cpp)

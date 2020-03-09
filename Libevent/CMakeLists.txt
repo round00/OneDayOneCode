@@ -12,3 +12,6 @@ target_link_libraries(EchoServer event)
 
 add_executable(HttpServer HttpServer.cpp)
 target_link_libraries(HttpServer event)
+
+add_executable(http http.cpp)
+target_link_libraries(http event)
