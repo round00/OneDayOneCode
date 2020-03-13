@@ -31,7 +31,6 @@ int main()
     threeWayPartition(a, 0, 6, 1);
     for(auto x:a)cout<<x<<" ";
     cout<<endl;
-    advance()
     return 0;
 }
 

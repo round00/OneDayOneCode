@@ -1,16 +1,24 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <vector>
 #include <string>
-#include <limits.h>
-#include <stdint.h>
-#include <dirent.h>
+#include <iostream>
 using namespace std;
 
+class A{
+    A(){}
+    void fun(int x);
+public:
 
+};
+class B:public A{
+public:
+
+};
+extern const int a = 1;
 int main()
 {
-    int x = -1;
-    printf("%u\n", x);
+    int x = 65535+81;
+    uint16_t y = x;
+    cout<<y<<endl;
     return 0;
 }
