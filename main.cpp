@@ -1,24 +1,19 @@
 #include <stdio.h>
-#include <vector>
-#include <string>
-#include <iostream>
-using namespace std;
+#include <math.h>
 
-class A{
-    A(){}
-    void fun(int x);
-public:
+typedef struct node{
+    double x;
+    int len;
 
-};
-class B:public A{
-public:
+    char s[1];
+}Node;
 
-};
-extern const int a = 1;
-int main()
-{
-    int x = 65535+81;
-    uint16_t y = x;
-    cout<<y<<endl;
+const char *s = "Nihao";
+int main(){
+    int off = 10;
+    char buf[128+off];
+    sprintf(buf, "%*.s%s", off, s);
+    printf("%s\n", buf);
+
     return 0;
 }

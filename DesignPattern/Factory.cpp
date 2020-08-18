@@ -1,5 +1,6 @@
 //
 // Created by gjk on 2020/3/13.
+// 工厂模式，消费者不关心他所需要的类是如何创建的时候
 //
 #include <iostream>
 using namespace std;
